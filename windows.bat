@@ -22,14 +22,14 @@ cls
 echo Invalid input entered, please select a valid option.
 goto options
 :regshutdown
-shutdown /s /t 20
+shutdown /s /t 15
 goto selected
 :regreboot
-shutdown /r /t 20
+shutdown /r /t 15
 goto selected
 :logout
-echo You will be logged out in 20 seconds. To cancel, press any key.
-timeout /t 5 >nul
+echo You will be logged out in 15 seconds. To cancel, press any key.
+timeout /t 15 >nul
 if errorlevel 1 (
     REM do nothing
     else (
@@ -39,14 +39,14 @@ if errorlevel 1 (
 cls
 goto options
 :uefi
-shutdown /r /fw /t 20 /c "Rebooting into UEFI menu..."
+shutdown /r /fw /t 15 /c "Rebooting into UEFI menu..."
 goto selected
 :advancestart
-shutdown /r /o /t 20 /c "Rebooting into Advanced Startup Options"
+shutdown /r /o /t 15 /c "Rebooting into Advanced Startup Options"
 goto selected
 :selected
 echo [%date% %time%] Option selected: %option% >>"actions.log"
-echo System will shutdown or reboot in 20 seconds. To cancel, press any key.
+echo System will shutdown or reboot in 15 seconds. To cancel, press any key.
 pause >nul
 shutdown /a
 echo [%date% %time%] Canceled operation. >>"actions.log"
